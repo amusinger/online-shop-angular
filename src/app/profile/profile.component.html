@@ -1,0 +1,26 @@
+<mat-card class="example-card" *ngIf="myProfile">
+  <mat-card-header>
+    <div mat-card-avatar class="example-header-image">
+        <img mat-card-avatar src="http://material.angular.io/assets/img/examples/shiba2.jpg" alt="Photo of a Shiba Inu">
+    </div>
+    <mat-card-title>{{myProfile.email}}</mat-card-title>
+    <mat-card-subtitle>{{ myProfile.password}}</mat-card-subtitle>
+  </mat-card-header>
+<!--  
+  <mat-card-content>
+    <p>Gender: {{ myProfile.Gender }}</p>
+    <p>Favorite Feature: {{ myProfile.FavoriteFeature }}</p>
+    <div *ngIf="myProfile.Emails?.length > 0">
+      <div *ngFor = "let email of myProfile.Emails" >    
+        <a href="mailto:{{email}}">{{ email }}</a> 
+      </div>   
+    </div>
+    <p>
+      Address: 
+      {{ myProfile.AddressInfo[0].Address }} 
+      {{ myProfile.AddressInfo[0].City.Name }}
+      {{ myProfile.AddressInfo[0].City.CountryRegion }}
+
+    </p>
+  </mat-card-content> -->
+</mat-card>

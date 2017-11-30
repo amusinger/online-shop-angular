@@ -1,0 +1,18 @@
+<mat-card class="example-card" *ngIf="prod">
+    <mat-card-header>
+ 
+      <mat-card-title><h3>{{prod.title}}</h3></mat-card-title>
+      <mat-card-subtitle>{{ prod.price + '₸'}}</mat-card-subtitle>
+    </mat-card-header>
+    <img mat-card-image [src]="prod.image" alt="Photo of a Shiba Inu">
+    
+    <mat-card-content>
+      <p>
+        {{prod.description}}
+      </p>
+    </mat-card-content> 
+
+    <mat-card-actions>
+        <button mat-button (click)="addToCart(prod.id)" >  <mat-icon> <i class="material-icons">shopping_cart</i></mat-icon> Add to cart</button>
+    </mat-card-actions>
+</mat-card>
