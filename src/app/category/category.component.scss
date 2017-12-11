@@ -2,23 +2,25 @@
     background: #EEE;
     display: flex;
     flex-direction: row;
-    flex-wrap: wrap;
     margin: 0 auto;
+    flex-wrap: wrap;
   }
   
   .cell {
     padding: 10px;
     margin: 10px;
     background:white;
+    border-radius: 5px;
     text-align: center;
-    flex: 1 1 20%;
+    flex: 1 1 330px;
     display: block;
+    max-width: 330px;
     height: 300px;
   }
 
   img{
-      width: 206px;
-      height: 200px;
+      max-width: 212px;
+      height: auto;
   }
 
   a{

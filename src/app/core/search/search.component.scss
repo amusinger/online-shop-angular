@@ -1,0 +1,44 @@
+form {
+    display: flex;
+    min-width: 450px;
+
+  }
+  
+  input {
+    flex: 1 1 auto;
+    margin-right: -1px;
+    padding: 5px 35px;
+    background-repeat: no-repeat;
+    background-position: 15px 50%;
+    border: 1px solid #c3c3c3;
+    border-top-left-radius: 40px;
+    border-bottom-left-radius: 40px;
+    font-size: 13px;
+    line-height: 1.2;
+  
+    &:focus {
+      outline: none;
+    }
+  
+    &::placeholder {
+      color: #92a5a8;
+    }
+  }
+  
+  .btn {
+    display: inline-block;
+    flex: none;
+    padding: 9px 25px;
+    background-color: #e91e63;
+    border: 1px solid #e91e63;
+    border-top-right-radius: 40px;
+    border-bottom-right-radius: 40px;
+    color: #fff;
+    cursor: pointer;
+    font-size: 13px;
+    font-weight: 700;
+    line-height: 1.2;
+    text-align: center;
+    user-select: none;
+  }
+  

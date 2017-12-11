@@ -1,0 +1,18 @@
+carousel-component{
+    margin-bottom: 50px;
+}
+.item-carousel{
+    border: 1px solid white !important;
+    img{
+        height: 100%;
+        cursor: pointer;
+        &:hover{
+            cursor: pointer;
+        }
+    }
+
+}
+
+app-home-categories{
+    margin-top: 50px;
+}

@@ -1,0 +1,28 @@
+{
+    "imgs":[
+        {
+            "title": "Home",
+            "image": "/assets/images/home.png",
+            "link": "/category/7"
+          },
+          {
+            "title": "Tech",
+            "image": "/assets/images/tech.jpg",
+            "link": "/category/6"
+          },
+          {
+              "title": "Toy",
+              "image": "/assets/images/toy.jpg",
+              "link": "/category/5"
+          },
+          {
+              "title": "Man",
+              "image": "/assets/images/men.png",
+              "link": "/category/1"
+          }
+
+    ]
+}
+   
+
+  

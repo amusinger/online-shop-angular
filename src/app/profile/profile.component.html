@@ -6,21 +6,32 @@
     <mat-card-title>{{myProfile.email}}</mat-card-title>
     <mat-card-subtitle>{{ myProfile.password}}</mat-card-subtitle>
   </mat-card-header>
-<!--  
   <mat-card-content>
-    <p>Gender: {{ myProfile.Gender }}</p>
-    <p>Favorite Feature: {{ myProfile.FavoriteFeature }}</p>
-    <div *ngIf="myProfile.Emails?.length > 0">
-      <div *ngFor = "let email of myProfile.Emails" >    
-        <a href="mailto:{{email}}">{{ email }}</a> 
-      </div>   
-    </div>
-    <p>
-      Address: 
-      {{ myProfile.AddressInfo[0].Address }} 
-      {{ myProfile.AddressInfo[0].City.Name }}
-      {{ myProfile.AddressInfo[0].City.CountryRegion }}
+      <button mat-button (click)="Logout(myProfile.email)">Logout</button>
+      
+  </mat-card-content>
+</mat-card>
 
-    </p>
-  </mat-card-content> -->
+<mat-card class="example-card" *ngIf="!myProfile">
+  <mat-card-header>
+    <mat-card-title>
+      Login
+    </mat-card-title>
+  </mat-card-header>
+  <mat-card-content>
+
+ 
+          <mat-form-field class="example-form-field">
+            <input matInput placeholder="Email"  [(ngModel)]="mail">
+          </mat-form-field>
+          <mat-form-field class="example-form-field">
+              <input matInput placeholder="Password"  [(ngModel)]="password">
+            </mat-form-field>
+          
+        <mat-card-actions>
+          <button mat-button (click)="Login()">Login</button>
+         
+        </mat-card-actions>
+
+  </mat-card-content>
 </mat-card>

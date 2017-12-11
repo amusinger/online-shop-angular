@@ -1,0 +1,19 @@
+<h3>Search results</h3>
+<div *ngIf="results" class="row">
+    <mat-card  *ngFor="let port of results" >
+        
+          <a [routerLink]="['/product', port.id]">
+            <mat-card-content>
+              <img *ngIf='port.image' [src]="port.image" alt="">
+              <img *ngIf='!port.image' src="http://completeconstruction.biz/communities/1/000/001/522/141//images/6747016.jpg" alt="">
+              <h4>{{port.title}}</h4>
+              <p>{{ port.price + '₸'}}</p>
+              <p>{{ port.description}}</p>
+            </mat-card-content>
+          </a>    
+        </mat-card> 
+</div>
+
+<div *ngIf="!results">
+  <h4>Your request is too unique like you</h4>
+</div>

@@ -1,0 +1,5 @@
+<form>
+    <input type="search" placeholder="I'm shopping for.."  [(ngModel)]="search" name="search-input">
+    <button class="btn" type="submit" [routerLink]="['/search', search]">  <mat-icon>search</mat-icon></button>
+  </form>
+  

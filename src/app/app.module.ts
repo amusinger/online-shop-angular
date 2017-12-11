@@ -20,6 +20,9 @@ import { OrderComponent } from './order/order.component';
 import { MakeOrderComponent } from './make-order/make-order.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
+import { CategoryComponent } from './category/category.component';
+import { NotFoundComponent } from './not-found/not-found.component';
+import { SearchResultsComponent } from './search-results/search-results.component';
 
 @NgModule({
   declarations: [
@@ -27,7 +30,10 @@ import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
     ProductComponent,
     CartComponent,
     OrderComponent,
-    MakeOrderComponent
+    MakeOrderComponent,
+    CategoryComponent,
+    NotFoundComponent,
+    SearchResultsComponent
   ],
   imports: [
     BrowserModule,

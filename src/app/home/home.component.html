@@ -1,1 +1,10 @@
+<carousel-component *ngIf="imgs" [initialSlide]=2 [timeToSlide]=300>
+    <div class="item-carousel" *ngFor="let i of imgs">
+        <div class="image">
+            <img [src]="i.image" [routerLink]="i.link"/>
+        </div>
+       
+    </div>
+</carousel-component>
+<app-home-categories></app-home-categories>
 <app-home-products *ngIf="prods" [prods]="prods"></app-home-products >

@@ -23,9 +23,9 @@ export class CartComponent implements OnInit {
     .then(data => this.inCart = data);
   }
 
-  buyItem(id: String){
-    this.cartService.BuyItem(id);
-  }
+  // buyItem(id: String){
+  //   this.cartService.BuyItem(id);
+  // }
 
   removeItem(id: String){
     for(let i in this.inCart){

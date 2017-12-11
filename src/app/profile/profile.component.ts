@@ -11,10 +11,32 @@ export class ProfileComponent implements OnInit {
   constructor(private profile: RequestService) { }
 
   myProfile;
+  mail: string;
+  password: string;
 
   ngOnInit() {
-    this.profile.LoginUser('aiyerimbetova@gmail.com', '12345').then(data => this.myProfile = data);
+    this.isOnline();
     console.log('hey');
+  }
+
+  isOnline(){
+    this.profile.isOnline().then(data => {
+      if(data){
+        this.myProfile = data;
+      }
+      else{
+        this.myProfile = null;
+      }
+     
+    });
+  }
+
+  Login(){
+    this.profile.LoginUser(this.mail, this.password).then(data => this.myProfile = data);
+  }
+
+  Logout(email: string){
+    this.profile.LogoutUser(email).then(data => this.myProfile = data);
   }
 
 }

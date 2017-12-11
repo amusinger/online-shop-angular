@@ -13,22 +13,56 @@ export class RequestService {
   
   private productsUrl = '/api/products/view/all';
   private viewItemUrl = '/api/products/view/';
+  private searchItemUrl = '/api/products/search/';
+  private helperUrl = '/assets/helper.json';
 
+  private categoryUrl = '/api/categories/view/all';
+  private viewItemInCategoryUrl = '/api/categories/view/';
+  private categoryNameUrl ='/api/categories/view/cat/';
+
+  private onlineUrl = 'api/profile/online';
   private loginUrl = 'api/profile/login/';
   private logoutUrl = 'api/profile/logout/';
   private registerUrl = 'api/profile/register/';
 
   private addCartUrl = 'api/carts/add/';
   private removeCartUrl = 'api/carts/delete/';
-  private viewCartUrl = 'api/carts/checkout/'
+  private viewCartUrl = 'api/carts/checkout/';
+  private countCartUrl = 'api/carts/count/'
 
   private buyItemUrl = 'api/orders/buy/';
   private viewOrdersUrl = 'api/orders/view/all';
 
+
   
+  public load(): Promise<any> {
+    return this.http.get(this.helperUrl).toPromise().then(response => response.json() as any[])
+  }
 
   public getProducts<T>(): Promise<any[]>{
     return this.http.get(this.productsUrl)
+    .toPromise().then(response => response.json() as any[])
+  }
+
+  public searchProducts<T>(word: string): Promise<any[]>{
+    return this.http.get(this.searchItemUrl + word)
+    .toPromise().then(response => response.json() as any[])
+  }
+
+
+
+  public getCategories<T>(): Promise<any[]>{
+    return this.http.get(this.categoryUrl)
+    .toPromise().then(response => response.json() as any[])
+  }
+
+  public getCategoryName<T>(id:string): Promise<any[]>{
+    return this.http.get(this.categoryNameUrl + id)
+    .toPromise().then(response => response.json() as any[])
+  }
+
+  public getProductsInCategory<T>(id:string): Promise<any[]>{
+    return this.http.get(this.viewItemInCategoryUrl + id)
     .toPromise().then(response => response.json() as any[])
   }
 
@@ -55,6 +89,11 @@ console.log(pass)
     // .toPromise().then(response => response.json() as any[])
   }
 
+  public isOnline<T>(): Promise<any[]>{
+    return this.http.get(this.onlineUrl)
+    .toPromise().then(response => response.json() as any[])
+  }
+
   public LogoutUser<T>(email): Promise<any[]>{
     return this.http.get(this.logoutUrl + email)
     .toPromise().then(response => response.json() as any[])
@@ -78,6 +117,11 @@ console.log(pass)
   public ViewCart<T>(): Promise<any[]>{
     console.log(this.viewCartUrl);
     return this.http.get(this.viewCartUrl)
+    .toPromise().then(response => response.json() as any[]);
+  }
+
+  public CountCart<T>(): Promise<any[]>{
+    return this.http.get(this.countCartUrl)
     .toPromise().then(response => response.json() as any[]);
   }
 

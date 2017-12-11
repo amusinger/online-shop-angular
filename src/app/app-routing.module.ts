@@ -6,6 +6,9 @@ import { ProductComponent } from './product/product.component';
 import { CartComponent } from './cart/cart.component';
 import { OrderComponent } from './order/order.component';
 import { MakeOrderComponent } from './make-order/make-order.component';
+import { CategoryComponent } from './category/category.component';
+import { NotFoundComponent } from './not-found/not-found.component';
+import { SearchResultsComponent } from './search-results/search-results.component';
 
 
 const routes: Routes = [
@@ -36,6 +39,10 @@ const routes: Routes = [
         component: ProductComponent
       },
       {
+        path: 'category/:id', 
+        component: CategoryComponent
+      },
+      {
         path: 'cart', 
         component: CartComponent
       },
@@ -46,7 +53,13 @@ const routes: Routes = [
       {
         path: 'order/:id', 
         component: MakeOrderComponent
-      }
+      },
+      {
+        path: 'search/:word',
+        component: SearchResultsComponent,
+      },
+      {path: '404', component: NotFoundComponent},
+      {path: '**', redirectTo: '/404'}
     ]
   }
 ];

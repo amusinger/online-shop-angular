@@ -1,0 +1,21 @@
+<div *ngIf="cat">  
+  <h3 class="title"><span>{{cat.categoryName}}</span></h3>
+  <!-- <div>Price from min: 
+    <input type="text" [(ngModel)]="min">
+    <input type="text" [(ngModel)]="max">
+  </div> -->
+  <div class="bg" *ngIf="prods">
+    <div  *ngFor="let port of prods" >
+    
+      <a [routerLink]="['/product', port.id]">
+        <div class="cell">
+          <img [src]="port.image" alt="">
+          <img *ngIf='!port.image' src="http://completeconstruction.biz/communities/1/000/001/522/141//images/6747016.jpg" alt="">
+          <h4>{{port.title}}</h4>
+          <p>{{ port.price + '₸'}}</p>
+        </div>
+      </a>    
+    </div> 
+  </div>  
+
+</div>
