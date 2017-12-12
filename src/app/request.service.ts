@@ -15,12 +15,13 @@ export class RequestService {
   private viewItemUrl = '/api/products/view/';
   private searchItemUrl = '/api/products/search/';
   private helperUrl = '/assets/helper.json';
+  private filterProdsUrl = '/api/products/filter/';
 
   private categoryUrl = '/api/categories/view/all';
   private viewItemInCategoryUrl = '/api/categories/view/';
   private categoryNameUrl ='/api/categories/view/cat/';
 
-  private onlineUrl = 'api/profile/online';
+  private onlineUrl = 'api/profile/get/';
   private loginUrl = 'api/profile/login/';
   private logoutUrl = 'api/profile/logout/';
   private registerUrl = 'api/profile/register/';
@@ -32,6 +33,7 @@ export class RequestService {
 
   private buyItemUrl = 'api/orders/buy/';
   private viewOrdersUrl = 'api/orders/view/all';
+
 
 
   
@@ -49,7 +51,10 @@ export class RequestService {
     .toPromise().then(response => response.json() as any[])
   }
 
-
+  public filterProducts(min: string, max:string): Promise<any[]>{
+    return this.http.get(this.filterProdsUrl + min + '/max/'+ max)
+    .toPromise().then(response => response.json() as any[]);
+  }
 
   public getCategories<T>(): Promise<any[]>{
     return this.http.get(this.categoryUrl)
@@ -89,12 +94,13 @@ console.log(pass)
     // .toPromise().then(response => response.json() as any[])
   }
 
-  public isOnline<T>(): Promise<any[]>{
-    return this.http.get(this.onlineUrl)
+  public isOnline<T>(id: string): Promise<any[]>{
+    return this.http.get(this.onlineUrl + id)
     .toPromise().then(response => response.json() as any[])
   }
 
   public LogoutUser<T>(email): Promise<any[]>{
+    localStorage.removeItem("userID");
     return this.http.get(this.logoutUrl + email)
     .toPromise().then(response => response.json() as any[])
   }
@@ -105,34 +111,56 @@ console.log(pass)
   }
 
   public AddToCart<T>(id: String): Promise<any[]>{
-    return this.http.get(this.addCartUrl + id)
-    .toPromise().then(response => response.json() as any[])
+    var userID = localStorage.getItem("userID");
+    var url = this.addCartUrl + id + '/user/' + userID;
+    return this.http.get(url).toPromise().then(response => response.json() as any[])
   }
 
   public RemoveFromCart<T>(id: String){
-    this.http.get(this.removeCartUrl + id)
+    var userID = localStorage.getItem("userID");
+    var url = this.removeCartUrl + id + '/user/' + userID;
+    this.http.get(url)
     .toPromise().then(response => response.json() as any[])
   }
 
   public ViewCart<T>(): Promise<any[]>{
-    console.log(this.viewCartUrl);
-    return this.http.get(this.viewCartUrl)
+    var userID = localStorage.getItem("userID");
+    console.log(this.viewCartUrl + userID);
+    return this.http.get(this.viewCartUrl + userID)
     .toPromise().then(response => response.json() as any[]);
   }
 
-  public CountCart<T>(): Promise<any[]>{
-    return this.http.get(this.countCartUrl)
-    .toPromise().then(response => response.json() as any[]);
+  // public CountCart<T>(): number{
+  //   var userID = localStorage.getItem("userID");
+  //   console.log("IDDDD", userID);
+  //   if(Number(userID) > 0){
+  //     this.http.get(this.countCartUrl + userID)
+  //     .toPromise().then(response => {
+  //       var x = response.json() as any;
+  //       return x as number;
+  //     });
+  //   } else{
+  //     return 0;
+  //   }
+  // }
+
+  public CountCart(): Observable<any>{
+    var userID = localStorage.getItem("userID");
+    return this.http.get(this.countCartUrl + userID);
   }
 
   public BuyItem<T>(id: String, address: String): Promise<any[]>{
-    return this.http.get(this.buyItemUrl + id + '/address/' + address)
+    var userID = localStorage.getItem("userID");
+    var cnt = (Number(localStorage.getItem("count")) - 1) || 0;
+    localStorage.setItem("count", String(cnt));
+    return this.http.get(this.buyItemUrl + id + '/address/' + address +'/user/' + userID)
     .toPromise().then(response => response.json() as any[])
   }
 
 
   public ViewOrders<T>(): Promise<any[]>{
-    return this.http.get(this.viewOrdersUrl )
+    var userID = localStorage.getItem("userID");
+    return this.http.get(this.viewOrdersUrl  +'/'+ userID)
     .toPromise().then(response => response.json() as any[])
   }
 

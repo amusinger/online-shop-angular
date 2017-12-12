@@ -48,7 +48,7 @@ import { SearchResultsComponent } from './search-results/search-results.componen
     BrowserAnimationsModule
 
   ],
-  providers: [RequestService],
+  providers: [RequestService,HeaderComponent],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

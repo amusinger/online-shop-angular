@@ -35,6 +35,11 @@ export class CartComponent implements OnInit {
     }
     
     this.cartService.RemoveFromCart(id);
+    this.cartService.CountCart().subscribe(data => {
+      var x = data.json()
+      localStorage.setItem("count", String(x));
+    })
+
     this.getItems();
 
   }

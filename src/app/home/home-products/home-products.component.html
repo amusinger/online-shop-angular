@@ -1,10 +1,20 @@
 <div>  
-  <h3 class="title"><span>Our Products</span></h3>
+
   <!-- <div>Price from min: 
     <input type="text" [(ngModel)]="min">
     <input type="text" [(ngModel)]="max">
   </div> -->
 <div class="bg">
+    <h3 class="title"><span>OUR PRODUCTS</span></h3>
+    <div class="filter">
+      <mat-form-field class="example-full-width">
+        <input type="number"  matInput placeholder="min" [(ngModel)]="min">
+      </mat-form-field>
+      <mat-form-field class="example-full-width">
+        <input type="number"  matInput placeholder="max" [(ngModel)]="max">
+      </mat-form-field>
+      <button mat-raised-button color="accent" (click)="filterItems()">Filter</button>
+    </div>
   <div  *ngFor="let port of prods" >
    
     <a [routerLink]="['/product', port.id]">

@@ -10,13 +10,13 @@
       </mat-menu>
       <app-search></app-search>
       <button mat-button [routerLink]="['/cart']">
-        <mat-icon> shopping_cart</mat-icon>
-        <span> Cart
+        <mat-icon> shopping_cart</mat-icon> 
+       
 
-            <mat-chip-list>
-                <mat-chip color="accent" selected="true"> {{count}}</mat-chip>
-              </mat-chip-list>
-        </span>
+        <mat-chip-list>
+          <mat-chip color="accent" selected="true"> {{cnt}}</mat-chip>
+        </mat-chip-list>
+
       </button>
 
       <button mat-button [routerLink]="['/order']">

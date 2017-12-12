@@ -4,6 +4,8 @@
     flex-direction: row;
     flex-wrap: wrap;
     margin: 0 auto;
+    padding: 35px;
+    margin-top: 50px;
   }
   
   .cell {
@@ -14,10 +16,11 @@
     flex: 1 1 20%;
     display: block;
     height: 300px;
+    width: 250px;
   }
 
   img{
-      width: 206px;
+      width: 200px;
       height: 200px;
   }
 
@@ -29,4 +32,13 @@
       &:hover div{
         box-shadow: 0 2px 10px rgba(0,0,0,.1), 0 1px 10px rgba(0,0,0,.2); 
       }
+  }
+  .title{
+    display: block;
+    flex: 1 1 100%;
+  }
+
+  .filter{
+    display: block;
+    flex: 1 1 100%;
   }

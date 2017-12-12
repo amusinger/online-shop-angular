@@ -10,15 +10,27 @@ export class OrderComponent implements OnInit {
 
   constructor(private orderService: RequestService) { }
 
-  orders
+  orders;
+  prods: any[] = [];
   ngOnInit() {
     this.getItems();
     console.log(this.orders);
   }
 
   getItems(){
-    this.orderService.ViewCart()
-    .then(data => this.orders = data);
+    this.orderService.ViewOrders()
+    .then(data => {
+      this.orders = data;
+      for(let i of data){
+        this.orderService.ViewItem(i.product_id).then(
+          data => {
+            this.prods.push(data);
+          }
+        )
+      }
+      
+      console.log(this.orders);
+    });
   }
 
 }

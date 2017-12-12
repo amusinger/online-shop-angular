@@ -1,4 +1,5 @@
 import { Component, OnInit, Input } from '@angular/core';
+import { RequestService } from '../../request.service';
 
 @Component({
   selector: 'app-home-products',
@@ -7,9 +8,19 @@ import { Component, OnInit, Input } from '@angular/core';
 })
 export class HomeProductsComponent implements OnInit {
 
-  constructor() { }
+  constructor(private filterService: RequestService) { }
   @Input() prods: any[];
+
+  min;
+  max;
+
   ngOnInit() {
+  }
+
+  filterItems(){
+    this.filterService.filterProducts(this.min, this.max).then( data=>{
+     this.prods = data;
+    })
   }
 
 }

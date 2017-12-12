@@ -14,6 +14,10 @@ nav{
   margin: 0 10px;
 }
 
+mat-chip-list{
+  display: inline-block;
+}
+
 app-search{
   min-width: 450px;
   display: inline-flex;
