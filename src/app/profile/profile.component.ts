@@ -14,15 +14,20 @@ export class ProfileComponent implements OnInit {
   mail: string;
   password: string;
 
+  mail2: string;
+  password2: string;
+
   ngOnInit() {
     this.isOnline();
     console.log('hey');
   }
 
   isOnline(){
-    this.profile.isOnline().then(data => {
+    var userID = localStorage.getItem("userID");
+    this.profile.isOnline(userID).then(data => {
       if(data){
         this.myProfile = data;
+        
       }
       else{
         this.myProfile = null;
@@ -32,11 +37,23 @@ export class ProfileComponent implements OnInit {
   }
 
   Login(){
-    this.profile.LoginUser(this.mail, this.password).then(data => this.myProfile = data);
+    this.profile.LoginUser(this.mail, this.password).then(data => {
+      this.myProfile = data;
+      localStorage.setItem("userID", this.myProfile.id);
+    });
+  }
+
+  Register(){
+    this.profile.RegisterUser(this.mail2, this.password2).then(data => {
+      this.myProfile = data;
+    });
   }
 
   Logout(email: string){
-    this.profile.LogoutUser(email).then(data => this.myProfile = data);
+    this.profile.LogoutUser(email).then(data => {
+      this.myProfile = data;
+      localStorage.removeItem("userID");
+    });
   }
 
 }
