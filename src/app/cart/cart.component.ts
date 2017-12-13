@@ -12,9 +12,11 @@ export class CartComponent implements OnInit {
   constructor(private cartService: RequestService) { }
 
   inCart;
+  isLogged = null;
 
   ngOnInit() {
     this.getItems();
+    this.isLogged = localStorage.getItem("userID");
     console.log(this.inCart);
   }
 

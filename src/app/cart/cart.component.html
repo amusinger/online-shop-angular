@@ -1,5 +1,8 @@
 <h3>My cart</h3>
-<div *ngIf="!inCart">
+<div *ngIf = "!isLogged">
+    <a [routerLink]="['/profile']">Please login </a>
+</div>
+<div *ngIf="!inCart && isLogged">
   <p> You cart is empty! </p>
   <a href="/" class='home-link'>Start shopping</a>
 </div>

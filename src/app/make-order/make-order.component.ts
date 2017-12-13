@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { RequestService } from '../request.service';
 import { FormControl, Validators } from '@angular/forms';
 
@@ -12,7 +12,8 @@ export class MakeOrderComponent implements OnInit {
 
   constructor(
     private route: ActivatedRoute,
-    private orderService: RequestService) { }
+    private orderService: RequestService,
+    private router: Router) { }
 
   public product;
   productID: string;
@@ -31,6 +32,7 @@ export class MakeOrderComponent implements OnInit {
 
   buyItem(){
     this.orderService.BuyItem(this.product.id, this.address);
+    this.router.navigateByUrl('/order');
     // console.log(this.product);
     // console.log(this.address);
   }

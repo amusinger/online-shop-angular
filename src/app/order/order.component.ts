@@ -13,6 +13,7 @@ export class OrderComponent implements OnInit {
   orders;
   prods: any[] = [];
   ngOnInit() {
+   
     this.getItems();
     console.log(this.orders);
   }

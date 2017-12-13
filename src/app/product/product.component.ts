@@ -29,9 +29,10 @@ prod;
   
   addToCart(id: string){
     this.prodService.AddToCart(id);
-    var x = Number(localStorage.getItem("count")) + 1;
-    localStorage.setItem("count", String(x));
-    //this.header.countCart();
+    if(localStorage.getItem("userID")){
+      var x = Number(localStorage.getItem("count")) + 1;
+      localStorage.setItem("count", String(x));
+    }
        
   }
 

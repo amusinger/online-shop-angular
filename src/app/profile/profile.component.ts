@@ -16,6 +16,7 @@ export class ProfileComponent implements OnInit {
 
   mail2: string;
   password2: string;
+  registered = false;
 
   ngOnInit() {
     this.isOnline();
@@ -46,6 +47,7 @@ export class ProfileComponent implements OnInit {
   Register(){
     this.profile.RegisterUser(this.mail2, this.password2).then(data => {
       this.myProfile = data;
+      this.registered = true;
     });
   }
 

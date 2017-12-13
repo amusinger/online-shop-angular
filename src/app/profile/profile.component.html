@@ -28,14 +28,15 @@
       </mat-form-field>
     
     <mat-card-actions>
-      <button mat-button (click)="Login()">Login</button> 
+      <button mat-raised-button color="accent"  (click)="Login()">Login</button> 
     </mat-card-actions>
   </mat-card-content>
 </mat-card>
 
+<br>
+<br>
 
-
-<mat-card class="example-card" *ngIf="!myProfile">
+<mat-card class="example-card" *ngIf="!myProfile && !registered">
     <h5>Or you can register</h5>
     <mat-card-header>
       <mat-card-title>
@@ -52,7 +53,7 @@
         </mat-form-field>
       
       <mat-card-actions>
-        <button mat-button (click)="Register()">Register</button> 
+        <button mat-raised-button color="accent" (click)="Register()">Register</button> 
       </mat-card-actions>
   
     </mat-card-content>

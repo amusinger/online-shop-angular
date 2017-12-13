@@ -154,7 +154,9 @@ console.log(pass)
     var cnt = (Number(localStorage.getItem("count")) - 1) || 0;
     localStorage.setItem("count", String(cnt));
     return this.http.get(this.buyItemUrl + id + '/address/' + address +'/user/' + userID)
-    .toPromise().then(response => response.json() as any[])
+    .toPromise().then(response => 
+      response.json() as any[]  
+    )
   }
 
 

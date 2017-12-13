@@ -7,6 +7,7 @@
 <div class="bg">
     <h3 class="title"><span>OUR PRODUCTS</span></h3>
     <div class="filter">
+    
       <mat-form-field class="example-full-width">
         <input type="number"  matInput placeholder="min" [(ngModel)]="min">
       </mat-form-field>
@@ -14,6 +15,12 @@
         <input type="number"  matInput placeholder="max" [(ngModel)]="max">
       </mat-form-field>
       <button mat-raised-button color="accent" (click)="filterItems()">Filter</button>
+    </div>
+
+    <div class="filter">
+        <button mat-raised-button (click)="OrderByName()">Order by name</button>
+        <button mat-raised-button (click)="OrderByPrice()">Order by price</button>
+        <button mat-raised-button (click)="Reset()">Reset</button>
     </div>
   <div  *ngFor="let port of prods" >
    
